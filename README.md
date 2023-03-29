@@ -1,7 +1,6 @@
 # ComputacaoGrafica2023
  Projetos de Computação Gráfica
 
-Como usar:
 Para conseguir utilizar o programa, é necessário ter instalado o Python e o VSCode em seu sistema operacional. 
 
 Como fazer funcionar:
