@@ -1,7 +1,7 @@
 # ComputacaoGrafica2023
  Projetos de Computação Gráfica
 
-///////////////////////////////////////////////////////////////////////// Documentação ////////////////////////////////////////////////////////////////////////////////// 
+Como usar:
 Para conseguir utilizar o programa, é necessário ter instalado o Python e o VSCode em seu sistema operacional. 
 
 Como fazer funcionar:
@@ -14,4 +14,4 @@ faça isso para todas as bibliotecas mencionadas.
 
 Após a instalação das bibliotecas, aperte F6 para executar o programa ou clique no botão "Run Python file" que se encontra abaixo do botão de minimizar o VSCode,
 no canto superior direito.
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
