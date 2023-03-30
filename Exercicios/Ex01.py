@@ -5,24 +5,96 @@ from OpenGL.GL import *
 
 
 #Função do desenho
-def desenhoTriangulo():
+def desenhoOculos():
     #É necessário utilizar o glClear() para limpar o buffer e não ocorrer nenhum problema na hora de desenhar alguma coisa na tela.
     glClear(GL_COLOR_BUFFER_BIT)
+    glClearColor(255, 255, 255, 0)
+    glPointSize(15.0)
 
-    #Aqui foi definido o triângulo, passando como parâmetro a constante "GL_TRIANGLES" para informar ao OpenGL que estamos desenhando um triângulo.
-    glBegin(GL_TRIANGLES)
+    glBegin(GL_POINTS)
+    glColor3f(0, 0, 0) #Alterar para preto
+    glVertex2f(-0.00, 0.05)
+    glVertex2f(-0.05, 0.05)
+    glVertex2f(-0.1, 0.05)
+    glVertex2f(-0.15, 0.05)
+    glVertex2f(-0.2, 0.05)
+    glVertex2f(-0.25, 0.05)
+    glVertex2f(-0.3, 0.05)
+    glVertex2f(-0.35, 0.05)
+    glVertex2f(-0.4, 0.05)
+    glVertex2f(-0.45, 0.05)
+    glVertex2f(0.00, 0.05)
+    glVertex2f(0.05, 0.05)
+    glVertex2f(0.1, 0.05)
+    glVertex2f(0.15, 0.05)
+    glVertex2f(0.2, 0.05)
+    glVertex2f(0.25, 0.05)
+    glVertex2f(0.3, 0.05)
+    glVertex2f(0.35, 0.05)
+    glVertex2f(0.4, 0.05)
+    glVertex2f(0.45, 0.05)
+    glVertex2f(0.5, 0.05)
+    glVertex2f(0.55, 0.05)
+    glVertex2f(0.6, 0.05)
+    glVertex2f(0.65, 0.05)
+    glEnd()
 
-    #Nessa parte é definida os pontos do triângulo, onde é utilizado o glVertex2f(),  o 2f representa que estamos fornecendos coordenadas em duas dimensões (x,y)
-    #Define o primeiro ponto do triângulo, localizado em (-0.5, -0.5)
-    glVertex2f(-0.5, -0.5)
 
-    # Define o segundo ponto do triângulo, localizado em (0.5, -0.5)
-    glVertex2f(0.5, -0.5)
+    glBegin(GL_POINTS) #Primeira linha de pixels
+    glVertex2f(0.70, -0.00)
+    glVertex2f(0.75, -0.00)
+    glVertex2f(0.80, -0.00)
+    
+    glVertex2f(0.40, -0.00)
+    glVertex2f(0.35, -0.00)
+    glVertex2f(0.30, -0.00)
+    glVertex2f(0.25, -0.00)
+    glVertex2f(0.20, -0.00)
+    glVertex2f(0.15, -0.00)
+    glVertex2f(0.10, -0.00)
+    glVertex2f(0.05, -0.00)
 
-    # Define o terceiro ponto do triângulo, localizado em (-0.5, 0.5)
-    glVertex2f(-0.5, 0.5)
+    glVertex2f(-0.10, -0.00)
+    glVertex2f(-0.15, -0.00)
+    glVertex2f(-0.20, -0.00)
+    glVertex2f(-0.25, -0.00)
+    glVertex2f(-0.30, -0.00)
+    glVertex2f(-0.35, -0.00)
+    glVertex2f(-0.40, -0.00)
+    glVertex2f(-0.45, -0.00)
+    glEnd()
 
-    #Finaliza o processo de desenho do triângulo
+    glBegin(GL_POINTS) #Segunda linha de pixels
+    glVertex2f(0.35, -0.05)
+    glVertex2f(0.30, -0.05)
+    glVertex2f(0.25, -0.05)
+    glVertex2f(0.20, -0.05)
+    glVertex2f(0.15, -0.05)
+    glVertex2f(0.10, -0.05)
+    glVertex2f(0.05, -0.05)
+ 
+    glVertex2f(-0.10, -0.05)
+    glVertex2f(-0.15, -0.05)
+    glVertex2f(-0.20, -0.05)
+    glVertex2f(-0.25, -0.05)
+    glVertex2f(-0.30, -0.05)
+    glVertex2f(-0.35, -0.05)
+    glVertex2f(-0.40, -0.05)
+    glEnd()
+
+    glBegin(GL_POINTS) #Terceira linha de pixels
+    glVertex2f(0.30, -0.10)
+    glVertex2f(0.25, -0.10)
+    glVertex2f(0.20, -0.10)
+    glVertex2f(0.15, -0.10)
+    glVertex2f(0.10, -0.10)
+
+    glVertex2f(-0.15, -0.10)
+    glVertex2f(-0.20, -0.10)
+    glVertex2f(-0.25, -0.10)
+    glVertex2f(-0.30, -0.10)
+    glVertex2f(-0.35, -0.10)
+
     glEnd()
 
 #Função para abrir a janela
@@ -34,7 +106,6 @@ def main():
 
     #Aqui é onde foi criada a resolução da janela do desenho, possuindo como parâmetros a largura, altura, o nome da janela, e os outros 2 parâmetros que estão classificados como "None" funcionariam para alterar entre telas fullscreen ou não e compartilhamento de objetos, vértices, etc.
     window = glfw.create_window(700, 700, "Ex1 - Computação Gráfica", None, None)
-
     #Verificação se a janela foi criada efetivamente, caso contrário o programa encerra imediatamente
     if not window:
         glfw.terminate()
@@ -50,7 +121,7 @@ def main():
         glfw.poll_events()
 
         #A chamada da função para renderizar a imagem na janela, a imagem é desenhada na memória GPU e ainda não aparece na janela.
-        desenhoTriangulo()
+        desenhoOculos()
 
         #Esta linha troca os buffers de cor da janela. Essa operação mostra a imagem renderizada na janela, tornando-a visível para o usuário. Ou seja, sem essa função, a janela abre, porém não irá aparecer nada além de uma tela branca com o título e sua resolução.
         glfw.swap_buffers(window)
